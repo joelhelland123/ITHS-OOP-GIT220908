@@ -1,30 +1,20 @@
 ﻿
 using System.Runtime.CompilerServices;
 
-void writeHtmlPage()
-{
 
-}
 
 WebsiteGenerator webPage = new WebsiteGenerator();
+
 webPage.setTopTags();
 webPage.setClassName();
 webPage.setClassMessage();
 webPage.setBottomTags();
-/*
-webPage.getTopTags();
-webPage.getClassName();
-webPage.getClassMessage();
-webPage.setCourses();
-webPage.getBottomTags();
-*/
 
 Console.WriteLine(webPage.topTags);
 Console.WriteLine(webPage.className);
 Console.WriteLine(webPage.classMessages);
 webPage.setCourses();
 Console.WriteLine(webPage.bottomTags);
-
 
 public class WebsiteGenerator
 {
@@ -33,12 +23,13 @@ public class WebsiteGenerator
     public string classMessages;
     public string bottomTags;
 
+
     public void setTopTags()
     {
         this.topTags = "<DOCTYPE>\n<html>\n<body>";
     }
 
-    public void getTopTags()
+    public void printTopTags()
     {
         Console.WriteLine(this.topTags);
     }
