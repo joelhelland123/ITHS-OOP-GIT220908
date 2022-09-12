@@ -16,9 +16,11 @@ Console.WriteLine(webPage.bottomTags);
 */
 
 string[] courses = { "   C#", "daTAbaser", "WebbuTVeKkling  ", "clean Code      " };
-WebsiteGenerator webPage2 = new WebsiteGenerator("<DOCTYPE>\n<html>\n<body>", "IT-Klassen", 2, courses, "</main>\n</body>\n</html>");
-webPage2.getTopTags();
-webPage2.getClassName();
+WebsiteGenerator webPage2 = new WebsiteGenerator("<!DOCTYPE>\n<html>\n<body>", "IT-Klassen", 2, courses, "</main>\n</body>\n</html>");
+//webPage2.getTopTags();
+Console.WriteLine(webPage2.getTopTags());
+//webPage2.getClassName();
+Console.WriteLine(webPage2.getClassName());
 webPage2.getClassMessages();
 webPage2.getCourses();
 webPage2.getBottomTags();
@@ -32,13 +34,13 @@ public class WebsiteGenerator
     private string bottomTags;
     
 
-    public WebsiteGenerator(string topTags, string classnName, int numberOfClassMessages, string[] courses, string bottomtags)
+    public WebsiteGenerator(string topTags, string className, int numberOfClassMessages, string[] courses, string bottomTags)
     {
-        this.topTags = topTags;
-        this.className = className;
+        setTopTags(topTags);
+        setClassName(className);
         setClassMessages(numberOfClassMessages);
         setCourses(courses);
-        this.bottomTags = bottomtags;
+        setBottomTags(bottomTags);
     }
     public WebsiteGenerator()
     {
@@ -50,9 +52,9 @@ public class WebsiteGenerator
         this.topTags = topTags;
     }
 
-    public void getTopTags()
+    public string getTopTags()
     {
-        Console.WriteLine(this.topTags);
+        return this.topTags;
     }
 
     public void setClassName(string className)
@@ -60,9 +62,9 @@ public class WebsiteGenerator
         this.className = "<h1>Välkommna " + className + "</h1>";
     }
 
-    public void getClassName()
+    public string getClassName()
     {
-        Console.Write(this.className);
+        return this.className;
     }
 
     public void setClassMessages(int numberOfClassMessages)
@@ -109,7 +111,7 @@ public class WebsiteGenerator
 
     public void getBottomTags()
     {
-        Console.WriteLine(this.bottomTags);
+        Console.Write(this.bottomTags);
     }
 }
 
