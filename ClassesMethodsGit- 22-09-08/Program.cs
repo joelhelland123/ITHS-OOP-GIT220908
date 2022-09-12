@@ -1,60 +1,75 @@
 ﻿
 using System.Runtime.CompilerServices;
-
-
-
+/*
 WebsiteGenerator webPage = new WebsiteGenerator();
 
-webPage.setTopTags();
-webPage.setClassName();
-webPage.setClassMessage();
-webPage.setBottomTags();
+webPage.setTopTags("<DOCTYPE>\n<html>\n<body>");
+webPage.setClassName("IT-Klassen");
+webPage.setClassMessages(2);
+webPage.setBottomTags("</main>\n</body>\n</html>");
 
-Console.WriteLine(webPage.topTags);
-Console.WriteLine(webPage.className);
-Console.WriteLine(webPage.classMessages);
-webPage.setCourses();
+Console.WriteLine(webPage.getTopTags);
+Console.WriteLine(webPage.getClassName);
+Console.WriteLine(webPage.getClassMessages);
+Console.WriteLine(webPage.getCourses);
 Console.WriteLine(webPage.bottomTags);
+*/
+
+string[] courses = { "   C#", "daTAbaser", "WebbuTVeKkling  ", "clean Code      " };
+WebsiteGenerator webPage2 = new WebsiteGenerator("<DOCTYPE>\n<html>\n<body>", "IT-Klassen", 2, courses, "</main>\n</body>\n</html>");
+webPage2.getTopTags();
+webPage2.getClassName();
+webPage2.getClassMessages();
+webPage2.getCourses();
+webPage2.getBottomTags();
 
 public class WebsiteGenerator
 {
-    public string topTags;
-    public string className;
-    public string classMessages;
-    public string bottomTags;
+    private string topTags;
+    private string className;
+    private string classMessages;
+    private string courses;
+    private string bottomTags;
+    
 
-
-    public void setTopTags()
+    public WebsiteGenerator(string topTags, string classnName, int numberOfClassMessages, string[] courses, string bottomtags)
     {
-        this.topTags = "<DOCTYPE>\n<html>\n<body>";
+        this.topTags = topTags;
+        this.className = className;
+        setClassMessages(numberOfClassMessages);
+        setCourses(courses);
+        this.bottomTags = bottomtags;
+    }
+    public WebsiteGenerator()
+    {
+
     }
 
-    public void printTopTags()
+    public void setTopTags(string topTags)
+    {
+        this.topTags = topTags;
+    }
+
+    public void getTopTags()
     {
         Console.WriteLine(this.topTags);
     }
 
-    public void setClassName()
-    {
-
-        Console.WriteLine("Vilken klass ska skrivas in?");
-        className = Console.ReadLine();
+    public void setClassName(string className)
+    { 
         this.className = "<h1>Välkommna " + className + "</h1>";
     }
 
     public void getClassName()
     {
-        Console.WriteLine(this.className);
+        Console.Write(this.className);
     }
 
-    public void setClassMessage()
+    public void setClassMessages(int numberOfClassMessages)
     {
         string meddelande = "";
         string meddelanden = "";
-        int antalMeddelanden;
-        Console.WriteLine("Hur många klasspecifika meddelanden önskar du skriva?");
-        antalMeddelanden = int.Parse(Console.ReadLine());
-        for (int i = 0; i < antalMeddelanden; i++)
+        for (int i = 0; i < numberOfClassMessages; i++)
         {
             Console.WriteLine("Skriv ditt klasspecifika meddelande:");
             meddelande = Console.ReadLine();
@@ -64,23 +79,32 @@ public class WebsiteGenerator
         this.classMessages = meddelanden;
     }
     
-    public void getClassMessage()
+    public void getClassMessages()
     {
         Console.WriteLine(this.classMessages);
     }
 
-    public void setCourses()
+    public void setCourses(string[] courses)
     {
-        string[] techniques = { "   C#", "daTAbaser", "WebbuTVeKkling  ", "clean Code      " };
-        foreach (string course in techniques)
+        string stringCourses = "";
+        
+        
+        foreach (string course in courses)
         {
-            Console.WriteLine($"<Kurs i {course.Trim().ToUpper().Substring(0, 1) + course.Trim().Substring(1).ToLower().Replace("kk", "ck")}/>");
+            stringCourses += $"<Kurs i {course.Trim().ToUpper().Substring(0, 1) + course.Trim().Substring(1).ToLower().Replace("kk", "ck")}/>\n";
         }
+        this.courses = stringCourses;
+        
+    }
+    
+    public void getCourses()
+    {
+        Console.WriteLine(this.courses);
     }
         
-    public void setBottomTags()
+    public void setBottomTags(string bottomTags)
     {
-        this.bottomTags = "</main>\n</body>\n</html>";
+        this.bottomTags = bottomTags;
     }
 
     public void getBottomTags()
