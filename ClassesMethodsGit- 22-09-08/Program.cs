@@ -1,29 +1,14 @@
 ﻿
 using System.Runtime.CompilerServices;
-/*
-WebsiteGenerator webPage = new WebsiteGenerator();
 
-webPage.setTopTags("<DOCTYPE>\n<html>\n<body>");
-webPage.setClassName("IT-Klassen");
-webPage.setClassMessages(2);
-webPage.setBottomTags("</main>\n</body>\n</html>");
-
-Console.WriteLine(webPage.getTopTags);
-Console.WriteLine(webPage.getClassName);
-Console.WriteLine(webPage.getClassMessages);
-Console.WriteLine(webPage.getCourses);
-Console.WriteLine(webPage.bottomTags);
-*/
-
+string gitTest;
 string[] courses = { "   C#", "daTAbaser", "WebbuTVeKkling  ", "clean Code      " };
-WebsiteGenerator webPage2 = new WebsiteGenerator("<!DOCTYPE>\n<html>\n<body>", "IT-Klassen", 2, courses, "</main>\n</body>\n</html>");
-//webPage2.getTopTags();
-Console.WriteLine(webPage2.getTopTags());
-//webPage2.getClassName();
-Console.WriteLine(webPage2.getClassName());
-webPage2.getClassMessages();
-webPage2.getCourses();
-webPage2.getBottomTags();
+WebsiteGenerator webPage = new WebsiteGenerator("<!DOCTYPE>\n<html>\n<body>", "IT-Klassen", 2, courses, "</main>\n</body>\n</html>");
+Console.WriteLine(webPage.getTopTags());
+Console.WriteLine(webPage.getClassName());
+webPage.getClassMessages();
+webPage.getCourses();
+webPage.getBottomTags();
 
 public class WebsiteGenerator
 {
