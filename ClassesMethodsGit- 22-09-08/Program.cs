@@ -2,13 +2,14 @@
 using System.Runtime.CompilerServices;
 
 string gitTest;
-string[] courses = { "   C#", "daTAbaser", "WebbuTVeKkling  ", "clean Code      " };
-WebsiteGenerator webPage = new WebsiteGenerator("<!DOCTYPE>\n<html>\n<body>", "IT-Klassen", 2, courses, "</main>\n</body>\n</html>");
+//string[] courses = { "   C#", "daTAbaser", "WebbuTVeckling  ", "clean Code      " };
+WebsiteGenerator webPage = new WebsiteGenerator("<!DOCTYPE>\n<html>\n<body>", "IT-Klassen", 2, new string[] { "   CSharp", "daTAbaser", "WebbuTVeckling  ", "clean Code      " }, "</main>\n</body>\n</html>");
+
 Console.WriteLine(webPage.getTopTags());
 Console.WriteLine(webPage.getClassName());
-webPage.getClassMessages();
-webPage.getCourses();
-webPage.getBottomTags();
+Console.WriteLine(webPage.getClassMessages());
+Console.WriteLine(webPage.getCourses());
+Console.WriteLine(webPage.getBottomTags());
 
 public class WebsiteGenerator
 {
@@ -66,9 +67,9 @@ public class WebsiteGenerator
         this.classMessages = meddelanden;
     }
     
-    public void getClassMessages()
+    public string getClassMessages()
     {
-        Console.WriteLine(this.classMessages);
+        return this.classMessages;
     }
 
     public void setCourses(string[] courses)
@@ -78,15 +79,15 @@ public class WebsiteGenerator
         
         foreach (string course in courses)
         {
-            stringCourses += $"<Kurs i {course.Trim().ToUpper().Substring(0, 1) + course.Trim().Substring(1).ToLower().Replace("kk", "ck")}/>\n";
+            stringCourses += $"<Kurs i {course.Trim().ToUpper().Substring(0, 1) + course.Trim().Substring(1).ToLower()}/>\n";
         }
         this.courses = stringCourses;
         
     }
     
-    public void getCourses()
+    public string getCourses()
     {
-        Console.WriteLine(this.courses);
+        return this.courses;
     }
         
     public void setBottomTags(string bottomTags)
@@ -94,9 +95,9 @@ public class WebsiteGenerator
         this.bottomTags = bottomTags;
     }
 
-    public void getBottomTags()
+    public string getBottomTags()
     {
-        Console.Write(this.bottomTags);
+        return bottomTags;
     }
 }
 
