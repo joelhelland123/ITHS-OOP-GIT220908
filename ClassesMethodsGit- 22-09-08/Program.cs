@@ -1,9 +1,12 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 
 string gitTest;
-//string[] courses = { "   C#", "daTAbaser", "WebbuTVeckling  ", "clean Code      " };
-WebsiteGenerator webPage = new WebsiteGenerator("<!DOCTYPE>\n<html>\n<body>", "IT-Klassen", 2, 
-    new string[] { "   CSharp", "daTAbaser", "WebbuTVeckling  ", "clean Code      " }, "</body>\n</html>");
+//string[] courses = { "   C#", "daTAbaser", "WebbuTVeckling  ", "clean Code      " } "<!DOCTYPE>\n<html>\n<body>", ;
+WebsiteGenerator webPage = new StyledWebsiteGenerator("<!DOCTYPE>\n<html>\n<head>\n<style>\np {color:","blue",
+     "}\n</style>\n</head>\n<body>", 
+    "IT-Klassen", 2, new string[] { "   CSharp", "daTAbaser", "WebbuTVeckling  ", "clean Code      " }, "</body>\n</html>");
 
 Console.WriteLine(webPage.getTopTags());
 Console.WriteLine(webPage.getClassName());
@@ -11,28 +14,27 @@ Console.WriteLine(webPage.getClassMessages());
 Console.WriteLine(webPage.getCourses());
 Console.WriteLine(webPage.getBottomTags());
 
+
+
 public class WebsiteGenerator
 {
-    private string topTags;
-    private string className;
-    private string classMessages;
-    private string courses;
-    private string bottomTags;
+    protected string topTags;
+    protected string className;
+    protected string classMessages;
+    protected string courses;
+    protected string bottomTags;
     
-    public WebsiteGenerator(string topTags, string className, int numberOfClassMessages, string[] courses, string bottomTags)
+    public WebsiteGenerator(string className, int numberOfClassMessages, string[] courses, string bottomTags)
     {
-        setTopTags(topTags);
-        setClassName(className);
+        
+        this.className = className;
         setClassMessages(numberOfClassMessages);
         setCourses(courses);
-        setBottomTags(bottomTags);
+        this.bottomTags = bottomTags;
+        
     }
 
-    public WebsiteGenerator()
-    {
-
-    }
-
+ 
     public void setTopTags(string topTags)
     {
         this.topTags = topTags;
@@ -99,4 +101,41 @@ public class WebsiteGenerator
         return this.bottomTags;
     }
 }
+public class StyledWebsiteGenerator : WebsiteGenerator
+{
+    public string firstTopStyleTags;
+    public string color;
+    public string lastTopStyleTags;
+    public string TopStyleTags
+    {
+        get { return TopStyleTags; }
+        set { TopStyleTags = value; }
+    }
+    public string Color
+    {
+        get { return Color; }
+        set { Color = value; }
+    }
+    public string LastTopStyleTags
+    {
+        get { return LastTopStyleTags; }
+        set { LastTopStyleTags = value; }
+    }
+
+
+    public StyledWebsiteGenerator(string firstTopStyleTags, string color,string lastTopStyleTags, string className, int numberOfClassMessages, string[] courses, string bottomTags)
+        :base(className, numberOfClassMessages, courses, bottomTags)
+    {
+        this.firstTopStyleTags = firstTopStyleTags;
+        this.color = color;
+        this.lastTopStyleTags = lastTopStyleTags;
+        Console.Write(this.firstTopStyleTags);
+        Console.Write(this.color);
+        Console.Write(this.lastTopStyleTags);
+    }
+}
+
+
+
+
 
