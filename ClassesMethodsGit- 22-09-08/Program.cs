@@ -1,9 +1,9 @@
-﻿
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 string gitTest;
 //string[] courses = { "   C#", "daTAbaser", "WebbuTVeckling  ", "clean Code      " };
-WebsiteGenerator webPage = new WebsiteGenerator("<!DOCTYPE>\n<html>\n<body>", "IT-Klassen", 2, new string[] { "   CSharp", "daTAbaser", "WebbuTVeckling  ", "clean Code      " }, "</main>\n</body>\n</html>");
+WebsiteGenerator webPage = new WebsiteGenerator("<!DOCTYPE>\n<html>\n<body>", "IT-Klassen", 2, 
+    new string[] { "   CSharp", "daTAbaser", "WebbuTVeckling  ", "clean Code      " }, "</body>\n</html>");
 
 Console.WriteLine(webPage.getTopTags());
 Console.WriteLine(webPage.getClassName());
@@ -19,7 +19,6 @@ public class WebsiteGenerator
     private string courses;
     private string bottomTags;
     
-
     public WebsiteGenerator(string topTags, string className, int numberOfClassMessages, string[] courses, string bottomTags)
     {
         setTopTags(topTags);
@@ -28,6 +27,7 @@ public class WebsiteGenerator
         setCourses(courses);
         setBottomTags(bottomTags);
     }
+
     public WebsiteGenerator()
     {
 
@@ -81,8 +81,7 @@ public class WebsiteGenerator
         {
             stringCourses += $"<Kurs i {course.Trim().ToUpper().Substring(0, 1) + course.Trim().Substring(1).ToLower()}/>\n";
         }
-        this.courses = stringCourses;
-        
+        this.courses = stringCourses + "</main>";
     }
     
     public string getCourses()
@@ -97,7 +96,7 @@ public class WebsiteGenerator
 
     public string getBottomTags()
     {
-        return bottomTags;
+        return this.bottomTags;
     }
 }
 
