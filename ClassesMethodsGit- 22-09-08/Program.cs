@@ -4,55 +4,41 @@ using System.Security.Cryptography.X509Certificates;
 
 string gitTest;
 //string[] courses = { "   C#", "daTAbaser", "WebbuTVeckling  ", "clean Code      " } "<!DOCTYPE>\n<html>\n<body>", ;
-WebsiteGenerator webPage = new StyledWebsiteGenerator("<!DOCTYPE>\n<html>\n<head>\n<style>\np {color:","blue",
-     "}\n</style>\n</head>\n<body>", 
+WebsiteGenerator webPage = new StyledWebsiteGenerator("\n<!DOCTYPE>\n<html>\n<head>\n<style>\np { color:","blue",
+     "; }\n</style>\n</head>\n<body>", 
     "IT-Klassen", 2, new string[] { "   CSharp", "daTAbaser", "WebbuTVeckling  ", "clean Code      " }, "</body>\n</html>");
 
-Console.WriteLine(webPage.getTopTags());
-Console.WriteLine(webPage.getClassName());
+
+
+Console.WriteLine(webPage.ClassName);
 Console.WriteLine(webPage.getClassMessages());
 Console.WriteLine(webPage.getCourses());
-Console.WriteLine(webPage.getBottomTags());
+Console.WriteLine(webPage.BottomTags);
 
 
 
 public class WebsiteGenerator
 {
-    protected string topTags;
-    protected string className;
+
+    
+    public string className;
     protected string classMessages;
     protected string courses;
     protected string bottomTags;
     
     public WebsiteGenerator(string className, int numberOfClassMessages, string[] courses, string bottomTags)
     {
-        
-        this.className = className;
         setClassMessages(numberOfClassMessages);
+        ClassName = className;
         setCourses(courses);
-        this.bottomTags = bottomTags;
+        BottomTags = bottomTags;
         
     }
 
- 
-    public void setTopTags(string topTags)
+    public string ClassName
     {
-        this.topTags = topTags;
-    }
-
-    public string getTopTags()
-    {
-        return this.topTags;
-    }
-
-    public void setClassName(string className)
-    { 
-        this.className = "<h1>Välkommna " + className + "</h1>";
-    }
-
-    public string getClassName()
-    {
-        return this.className;
+        get { return className; }
+        set { className = "<h1>Välkommna " + value + "</h1>"; }
     }
 
     public void setClassMessages(int numberOfClassMessages)
@@ -87,10 +73,15 @@ public class WebsiteGenerator
     }
     
     public string getCourses()
-    {
+    { 
         return this.courses;
     }
-        
+    public string BottomTags
+    {
+        get { return bottomTags; }
+        set { bottomTags = value; }
+    }
+     /*   
     public void setBottomTags(string bottomTags)
     {
         this.bottomTags = bottomTags;
@@ -100,38 +91,43 @@ public class WebsiteGenerator
     {
         return this.bottomTags;
     }
+     */
+
 }
+
 public class StyledWebsiteGenerator : WebsiteGenerator
 {
-    public string firstTopStyleTags;
-    public string color;
-    public string lastTopStyleTags;
-    public string TopStyleTags
+    protected string firstTopStyleTags;
+    protected string color;
+    protected string lastTopStyleTags;
+    public string FirstTopStyleTags
     {
-        get { return TopStyleTags; }
-        set { TopStyleTags = value; }
+        get { return firstTopStyleTags; }
+        set { firstTopStyleTags = value; }
     }
     public string Color
     {
-        get { return Color; }
-        set { Color = value; }
+        get { return color; }
+        set { color = value; }
     }
     public string LastTopStyleTags
     {
-        get { return LastTopStyleTags; }
-        set { LastTopStyleTags = value; }
+        get { return lastTopStyleTags; }
+        set { lastTopStyleTags = value; }
     }
-
 
     public StyledWebsiteGenerator(string firstTopStyleTags, string color,string lastTopStyleTags, string className, int numberOfClassMessages, string[] courses, string bottomTags)
         :base(className, numberOfClassMessages, courses, bottomTags)
     {
-        this.firstTopStyleTags = firstTopStyleTags;
-        this.color = color;
-        this.lastTopStyleTags = lastTopStyleTags;
-        Console.Write(this.firstTopStyleTags);
-        Console.Write(this.color);
-        Console.Write(this.lastTopStyleTags);
+
+        FirstTopStyleTags = firstTopStyleTags;
+        Color = color;
+        LastTopStyleTags = lastTopStyleTags;
+
+       Console.Write(FirstTopStyleTags);
+       Console.Write(Color);
+       Console.Write(LastTopStyleTags);
+       
     }
 }
 
