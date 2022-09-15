@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 
 string gitTest;
 //string[] courses = { "   C#", "daTAbaser", "WebbuTVeckling  ", "clean Code      " } "<!DOCTYPE>\n<html>\n<body>", ;
-Website webPage = new StyledWebsiteGenerator(
+WebsiteGenerator webPage  = new StyledWebsiteGenerator(
     "\n<!DOCTYPE>\n<html>\n<head>\n<style>\np { color: ",
     "blue",
      "; }\n</style>\n</head>\n<body>",
@@ -18,6 +18,7 @@ Console.WriteLine(webPage.ClassName);
 Console.WriteLine(webPage.ClassMessages);
 Console.WriteLine(webPage.Courses);
 Console.WriteLine(webPage.BottomTags);
+Console.ReadLine();
 
 
 

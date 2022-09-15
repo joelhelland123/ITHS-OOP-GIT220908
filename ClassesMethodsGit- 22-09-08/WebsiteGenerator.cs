@@ -1,13 +1,15 @@
 ﻿
 
-public class WebsiteGenerator : Website
+using ClassesMethodsGit__22_09_08;
+
+public class WebsiteGenerator : IWebsiteMethods
 {
-    /*
+    
     protected string className;
     protected string classMessages;
     protected string courses;
     protected string bottomTags;
-    */
+    
 
     public WebsiteGenerator(string className, int numberOfClassMessages, string[] courses, string bottomTags)
     {
@@ -17,13 +19,13 @@ public class WebsiteGenerator : Website
         BottomTags = bottomTags;
     }
 
-    override public string ClassName
+     public string ClassName
     {
         get { return className; }
         set { className = "<h1>Välkommna " + value + "</h1>"; }
     }
 
-    override public void setClassMessages(int numberOfClassMessages)
+     public void setClassMessages(int numberOfClassMessages)
     {
         string meddelande = "";
         string meddelanden = "";
@@ -37,17 +39,17 @@ public class WebsiteGenerator : Website
         this.classMessages = meddelanden;
     }
 
-    override public string ClassMessages
+     public string ClassMessages
     {
         get { return classMessages; }
     }
 
-    override public string Courses
+     public string Courses
     {
         get { return courses; }
     }
 
-    override public void setCourses(string[] courses)
+     public void setCourses(string[] courses)
     {
         string stringCourses = "";
 
@@ -59,7 +61,7 @@ public class WebsiteGenerator : Website
         this.courses = stringCourses + "</main>";
     }
 
-    override public string BottomTags
+     public string BottomTags
     {
         get { return bottomTags; }
         set { bottomTags = value; }
