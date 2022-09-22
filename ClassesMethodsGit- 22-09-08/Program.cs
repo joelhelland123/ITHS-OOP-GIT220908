@@ -2,8 +2,6 @@
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 
-string gitTest;
-//string[] courses = { "   C#", "daTAbaser", "WebbuTVeckling  ", "clean Code      " } "<!DOCTYPE>\n<html>\n<body>", ;
 WebsiteGenerator webPage  = new StyledWebsiteGenerator(
     "\n<!DOCTYPE>\n<html>\n<head>\n<style>\np { color: ",
     "blue",
