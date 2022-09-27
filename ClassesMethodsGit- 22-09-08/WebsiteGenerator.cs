@@ -37,6 +37,7 @@ public class WebsiteGenerator : IWebsiteMethods
         }
         meddelanden += "<main>";
         this.classMessages = meddelanden;
+
     }
 
      public string ClassMessages

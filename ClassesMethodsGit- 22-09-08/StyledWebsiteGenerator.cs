@@ -1,7 +1,7 @@
 ﻿using System;
 public class StyledWebsiteGenerator : WebsiteGenerator
 {
-    protected string firstTopStyleTags;
+    public string firstTopStyleTags;
     protected string color;
     protected string lastTopStyleTags;
 
@@ -29,7 +29,6 @@ public class StyledWebsiteGenerator : WebsiteGenerator
         FirstTopStyleTags = firstTopStyleTags;
         Color = color;
         LastTopStyleTags = lastTopStyleTags;
-
         Console.Write(FirstTopStyleTags);
         Console.Write(Color);
         Console.Write(LastTopStyleTags);
