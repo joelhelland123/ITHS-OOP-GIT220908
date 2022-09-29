@@ -8,13 +8,13 @@ namespace ClassesMethodsGit__22_09_08
 {
     internal interface IWebsiteMethods
     {
-        
-          void setClassMessages(int numberOfClassMessages);
-        
-          void setCourses(string[] courses);
-        
-         
-        
+
+        void setClassMessages(int numberOfClassMessages);
+
+        void setCourses(string[] courses);
+
+
+
     }
 }
 
